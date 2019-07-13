@@ -1,0 +1,33 @@
+[package]
+name = "fernet"
+version = "0.1.0"
+authors = ["Michael Lodder <redmike7@gmail.com>"]
+edition = "2018"
+
+[profile.release]
+lto = true
+
+[features]
+default = ["version3", "version2", "version1"]
+version3 = ["chacha20poly1305"]
+version2 = ["aes-gcm"]
+version1 = ["aes", "block-modes", "hmac", "sha2", "subtle"]
+
+[dependencies]
+arrayref = "0.3.5"
+aes = { version = "0.3.2", optional = true }
+aes-gcm = { version = "0.1.0", optional = true }
+aead = "0.1.1"
+block-modes = { version = "0.3.3", optional = true }
+chacha20poly1305 = { version = "0.2.1", optional = true }
+failure = "0.1.6"
+hmac = { version = "0.7.1", optional = true }
+rand = "0.7.2"
+sha2 = { version = "0.8.0", optional = true }
+subtle = { version = "2.2.1", optional = true }
+zeroize = "1.0.0"
+
+
+[dev-dependencies]
+hex = "0.4.0"
+base64 = "0.11.0"
