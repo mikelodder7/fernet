@@ -30,9 +30,7 @@ extern crate aes_gcm;
 #[cfg(feature = "version3")]
 extern crate chacha20poly1305;
 
-pub use aead;
-
-use aead::{
+pub use aead::{
     Aead,
     NewAead,
     Payload,
@@ -45,11 +43,11 @@ use aead::{
     }
 };
 #[cfg(feature = "version1")]
-use aead_aes_cbc_hmac::Aes128CbcHmac256;
+pub use aead_aes_cbc_hmac::Aes128CbcHmac256;
 #[cfg(feature = "version2")]
-use aes_gcm::Aes128Gcm;
+pub use aes_gcm::Aes128Gcm;
 #[cfg(feature = "version3")]
-use chacha20poly1305::XChaCha20Poly1305;
+pub use chacha20poly1305::XChaCha20Poly1305;
 
 use rand::prelude::*;
 use std::time::{SystemTime, UNIX_EPOCH};
